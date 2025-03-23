@@ -1,7 +1,6 @@
 import {
   ConflictException,
   Injectable,
-  SetMetadata,
   UnauthorizedException,
 } from '@nestjs/common';
 import { AuthenticateDto, SignUpDto } from './dto/authenticate.dto';
