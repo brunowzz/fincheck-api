@@ -1,6 +1,7 @@
 import {
   ConflictException,
   Injectable,
+  SetMetadata,
   UnauthorizedException,
 } from '@nestjs/common';
 import { AuthenticateDto, SignUpDto } from './dto/authenticate.dto';
@@ -38,6 +39,7 @@ export class AuthService {
     return { accessToken };
   }
 
+  @SetMetadata('IS_PUBLIC', true)
   async signUp(createUserDto: SignUpDto) {
     const { name, email, password } = createUserDto;
 
