@@ -11,3 +11,20 @@ export class AuthenticateDto {
   @MinLength(8)
   password: string;
 }
+
+export class SignUpDto {
+  @IsString()
+  @IsNotEmpty()
+  @MinLength(3)
+  name: string;
+
+  @IsString()
+  @IsNotEmpty()
+  @IsEmail()
+  email: string;
+
+  @IsString()
+  @IsNotEmpty()
+  @MinLength(8)
+  password: string;
+}
