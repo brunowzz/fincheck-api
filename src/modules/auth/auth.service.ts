@@ -8,8 +8,10 @@ import { AuthenticateDto, SignUpDto } from './dto/authenticate.dto';
 import { UserRepository } from 'src/shared/database/repositories/user.repositories';
 import { compare, hash } from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
+import { IsPublic } from 'src/shared/decorators/IsPublic';
 
 @Injectable()
+@IsPublic()
 export class AuthService {
   constructor(
     private readonly usersRepo: UserRepository,
@@ -39,7 +41,6 @@ export class AuthService {
     return { accessToken };
   }
 
-  @SetMetadata('IS_PUBLIC', true)
   async signUp(createUserDto: SignUpDto) {
     const { name, email, password } = createUserDto;
 
